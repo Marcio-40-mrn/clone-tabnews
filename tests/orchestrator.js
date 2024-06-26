@@ -1,12 +1,16 @@
 import retry from "async-retry";
 
 async function waitForAllServices() {
-  await waitForAllServices();
+  await waitForWebServer();
 
-  async function waitForAllServices() {
-    return retry(fetchStatusPage);
+  async function waitForWebServer() {
+    return retry(fetchStatusPage, {
+      retries: 100,
+      maxTimeout: 1000,
+    });
 
-    async function fetchStatusPage() {
+    async function fetchStatusPage(bail, tryNumber) {
+      console.log(tryNumber);
       const response = await fetch("http://localhost:3000/api/v1/status");
       const responseBody = await response.json();
     }
