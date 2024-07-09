@@ -31,10 +31,10 @@ export default {
   getNewClient,
 };
 
-function getSSLvalues() {
-  if (process.env.POSTGRES_CA) {
-    return {
-      ca: process.env.POSTGRES_CA,
-    };
-  }
-}
+// function getSSLvalues() {
+//   if (process.env.POSTGRES_CA) {
+//     return {
+//       ca: process.env.POSTGRES_CA,
+//     };
+//   }
+// }
